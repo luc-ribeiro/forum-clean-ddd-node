@@ -3,233 +3,237 @@ Forum Clean Architecture DDD Node.js
 <br>
 <br>
 </h1>
+
+<div align="right">
+    Clique <a href="https://github.com/luc-ribeiro/forum-clean-ddd-node/blob/main/README-PTBR.md">aqui</a> para ver a versão em Português.
+</div>
 <br>
 
-## 💻 Projeto
-Este projeto foi desenvolvido durante o curso de Node.js da Rocketseat.
+## 💻 Project
+This project was developed during the Node.js course at Rocketseat.
 
-O projeto consiste na criação de uma API REST para fórums, aplicando conceitos de **DDD e Clean Architecture**.
-O objetivo é praticar a criação de uma API seguindo o **Domain-Driven Design** e **Clean Architecture**, focando no desenvolvimento das regras de negócio da aplicação, enfatizando as regras de entidades e seus casos de uso.
+The project consists of creating a REST API for forums, applying **DDD and Clean Architecture** concepts.
+The goal is to practice creating an API following **Domain-Driven Design** and **Clean Architecture**, focusing on developing the application's business rules, emphasizing entity rules and their use cases.
 
-DDD é uma abordagem de design de software que enfatiza a colaboração entre especialistas do domínio e desenvolvedores para criar um modelo de domínio rico e bem estruturado.
-O objetivo principal da Clean Architecture é separar o código em camadas com responsabilidades bem definidas, facilitando a manutenção, testabilidade e escalabilidade; e permitindo que a lógica de negócio seja independente de frameworks e detalhes técnicos,
-as principais vantagens são: melhorar a testabilidade do código, facilitando a criação de testes automatizados e garantindo a qualidade e escalabilidade do software.
+DDD is a software design approach that emphasizes collaboration between domain experts and developers to create a rich and well-structured domain model.
+The main goal of Clean Architecture is to separate the code into layers with well-defined responsibilities, facilitating maintenance, testability, and scalability; and allowing business logic to be independent of frameworks and technical details.
+The main advantages are: improving code testability, facilitating the creation of automated tests, and ensuring software quality and scalability.
 
-## 🚀 Tecnologias
+## 🚀 Technologies
 
 - **Node.js** 
 - **TypeScript**
 - **Vitest**
 
-## :pencil: Conceitos
+## :pencil: Concepts
 
 - **Domain-Driven Design (DDD)**
 - **Clean Architecture**
 - **SOLID**
-- **POO**
-- **Testes Unitários**
+- **OOP**
+- **Unit Testing**
 - **Design Patterns**: Factory, Repository
 - **InMemoryTestDatabase**
 <details>
 <summary><strong>Functional Error Handling</strong></summary>
 
-##### Definição
-Utiliza-se funções para especificar se uma operação resultou em erro ou sucesso, sendo representado por “tuplas”.
-É importante para permitir que o erro seja capturado e tratado de forma adequada em diferentes partes da aplicação.
-É possível identificar um resultado de sucesso através do método ```isRight``` ou ```isLeft``` presente quando o tipo é ```Either```.
+##### Definition
+Functions are used to specify whether an operation resulted in an error or success, represented by “tuples”.
+It is important to allow the error to be captured and handled appropriately in different parts of the application.
+A success result can be identified through the ```isRight``` or ```isLeft``` method present when the type is ```Either```.
 
 </details>
 
-## :pencil: Conceitos de Domain-Driven Design aplicados:
+## :pencil: Applied Domain-Driven Design Concepts:
 
 <details>
 <summary><strong>Domains</strong></summary>
 
-##### Definição
-O domínio (domain) refere-se a um conjunto de conceitos, regras, processos e comportamentos que são fundamentais para um determinado negócio ou aplicação.
-É a área de conhecimento que descreve e organiza todo o conhecimento e entendimento necessário para desenvolver um software que atenda às necessidades do negócio ou aplicação.
+##### Definition
+The domain refers to a set of concepts, rules, processes, and behaviors that are essential for a particular business or application.
+It is the area of knowledge that describes and organizes all the knowledge and understanding necessary to develop software that meets the needs of the business or application.
 
-O domínio é a base do DDD e é a partir dele que os modelos de negócio são construídos. Ele é composto por um conjunto de entidades, agregados, serviços e eventos que representam conceitos fundamentais do negócio. 
-O conhecimento do domínio é essencial para que os desenvolvedores possam entender as necessidades do negócio e construir um software que atenda a essas necessidades de forma eficiente e eficaz.
+The domain is the foundation of DDD and it is from it that business models are built. It is composed of a set of entities, aggregates, services, and events that represent fundamental business concepts.
+Domain knowledge is essential so that developers can understand the business needs and build software that meets those needs efficiently and effectively.
 
-Além disso, o DDD enfatiza a importância da comunicação clara e constante entre os desenvolvedores e os especialistas do domínio (conhecidos como especialistas do domínio ou domain experts), 
-para que o conhecimento do domínio possa ser compartilhado e incorporado ao processo de desenvolvimento de software.
+In addition, DDD emphasizes the importance of clear and constant communication between developers and domain experts (known as domain experts or domain experts),
+so that domain knowledge can be shared and incorporated into the software development process.
 
 </details>
 
 <details>
 <summary><strong>Entities</strong></summary>
 
-##### Definição
-As entidades (entities) são objetos de domínio que representam conceitos importantes do negócio. Elas são responsáveis por encapsular o estado e o comportamento relacionado a esses conceitos, e são fundamentais para a modelagem do domínio.
+##### Definition
+Entities are domain objects that represent important business concepts. They are responsible for encapsulating the state and behavior related to these concepts and are fundamental for domain modeling.
 
-Uma entidade é caracterizada por ter uma identidade única e constante, que a diferencia de outras entidades do mesmo tipo.
+An entity is characterized by having a unique and constant identity, which differentiates it from other entities of the same type.
 
-Elas são importantes para o DDD porque elas representam as principais abstrações do domínio, e a sua correta modelagem ajuda a garantir que o software reflita de forma precisa as regras e o comportamento do negócio. 
-Além disso, as entidades costumam ser o ponto de entrada para outras operações do sistema, como validações, cálculos e regras de negócio específicas.
+They are important for DDD because they represent the main abstractions of the domain, and their correct modeling helps ensure that the software reflects the rules and behavior of the business accurately.
+In addition, entities are often the entry point for other system operations, such as validations, calculations, and specific business rules.
 
-##### Como representar o relacionamento entre entidades
-Por meio de IDs relacionados entre as entidades, mesmo que a estrutura do banco de dados seja diferente.
+##### How to represent the relationship between entities
+Through related IDs between entities, even if the database structure is different.
 
-##### Métodos Acessores (```Getters``` e ```Setters```)
-Os ```accessors``` servem como portas de entrada e saída da entidade, possibilitando validações e manipulações dos dados.
-É importante criar ```setters``` somente quando necessário, para proteger as propriedades da classe e evitar alterações indesejadas.
-
-</details>
-
-<details>
-<summary><strong>Casos de uso</strong></summary>
-
-##### Definição
-Os casos de uso (use cases) são uma técnica para descrever os requisitos funcionais de um sistema. Eles descrevem uma interação específica entre o usuário e o sistema, mostrando quais ações o usuário realiza e como o sistema responde a essas ações.
-
-Eles são uma parte importante do processo de desenvolvimento de software, pois ajudam a definir os requisitos do sistema e a garantir que ele atenda às necessidades dos usuários finais.
+##### Accessor Methods (```Getters``` and ```Setters```)
+The accessors serve as entry and exit points for the entity, enabling data validations and manipulations.
+It is important to create ```setters``` only when necessary, to protect the class properties and avoid unwanted changes.
 
 </details>
 
 <details>
-<summary><strong>Linguagem Ubíqua</strong></summary>
+<summary><strong>Use Cases</strong></summary>
 
-##### Definição
-A linguagem ubíqua (ubiquitous language) é uma técnica que consiste em usar uma linguagem comum, compreensível tanto para desenvolvedores quanto para especialistas do domínio, para descrever e entender os conceitos e processos do domínio em questão.
+##### Definition
+Use cases are a technique for describing the functional requirements of a system. They describe a specific interaction between the user and the system, showing what actions the user performs and how the system responds to those actions.
 
-Ela é importante porque ajuda a alinhar a comunicação entre os membros da equipe de desenvolvimento e os especialistas do domínio. Usando uma linguagem comum, todos os envolvidos no projeto podem ter uma compreensão compartilhada dos termos e conceitos-chave do domínio, 
-facilitando o desenvolvimento de um software que atenda às necessidades do negócio.
+They are an important part of the software development process because they help define the system requirements and ensure that it meets the needs of end users.
 
-Além disso, ela deve ser incorporada no código-fonte do software e em documentos relacionados, como diagramas e documentação técnica, para garantir que todos os envolvidos usem a mesma terminologia. 
-Dessa forma, a linguagem ubíqua ajuda a garantir que o software seja construído para atender às necessidades do negócio e que todos os envolvidos no projeto estejam na mesma página.
+</details>
 
-##### Importância
-Facilita a comunicação entre todos os envolvidos no desenvolvimento, garantindo que todos entendam os conceitos de domínio da mesma forma.
+<details>
+<summary><strong>Ubiquitous Language</strong></summary>
+
+##### Definition
+Ubiquitous language is a technique that involves using a common language, understandable to both developers and domain experts, to describe and understand the concepts and processes of the domain in question.
+
+It is important because it helps align communication between development team members and domain experts. By using a common language, everyone involved in the project can have a shared understanding of the domain's key terms and concepts,
+facilitating the development of software that meets the business needs.
+
+In addition, it should be incorporated into the software source code and related documents, such as diagrams and technical documentation, to ensure that all involved use the same terminology.
+Thus, ubiquitous language helps ensure that the software is built to meet the needs of the business and that all project stakeholders are on the same page.
+
+##### Importance
+Facilitates communication among all involved in development, ensuring that everyone understands domain concepts in the same way.
 
 </details>
 
 <details>
 <summary><strong>Subdomains</strong></summary>
 
-##### Vantagem
+##### Advantage
 
-A principal vantagem de separar os subdomínios em uma aplicação (mesmo que ela seja um monólito) é que isso permite a implantação independente de cada subdomínio.
-E é importante ter uma estrutura de comunicação entre subdomínios para garantir a independência dos subdomínios.
+The main advantage of separating subdomains in an application (even if it is a monolith) is that it allows independent deployment of each subdomain.
+And it is important to have a communication structure between subdomains to ensure the independence of the subdomains.
 
 </details>
 
 <details>
 <summary><strong>Domain Experts</strong></summary>
 
-##### Definição
-Profissionais que possuem profundo conhecimento sobre o domínio do problema a ser resolvido pelo software.
+##### Definition
+Professionals who possess deep knowledge about the domain of the problem to be solved by the software.
 
 </details>
 
 <details>
 <summary><strong>Watched Lists</strong></summary>
 
-##### Definição
-A "Watched List" é uma lista que permite adicionar ou remover itens sem a necessidade de manipular informações específicas de cada item. 
-O propósito de utilizá-la é facilitar a manipulação de informações de listas durante operações de edição, identificando quais itens foram adicionados, 
-editados ou removidos, de forma a otimizar as operações de atualização no banco de dados.
+##### Definition
+A "Watched List" is a list that allows adding or removing items without the need to manipulate specific information for each item. 
+The purpose of using it is to facilitate the manipulation of list information during editing operations, identifying which items have been added, 
+edited, or removed, in order to optimize update operations in the database.
 
-##### Exemplo
-Suponha que temos uma WatchedList de números criada com os itens 1, 2, e 3. Se utilizarmos o método `update([1, 3, 5])`, quais são os itens removidos e os itens adicionados?
+##### Example
+Suppose we have a WatchedList of numbers created with items 1, 2, and 3. If we use the `update([1, 3, 5])` method, what are the removed items and the added items?
 
-<strong>Resposta:</strong> Removidos: 2; Adicionados: 5.
+<strong>Answer:</strong> Removed: 2; Added: 5.
 
 </details>
 
 <details>
 <summary><strong>Aggregate Root</strong></summary>
 
-##### Definição
-É uma entidade principal que agrupa outras entidades relacionadas e é tratada como uma unidade durante operações de criação, atualização e remoção.
+##### Definition
+It is a primary entity that groups other related entities and is treated as a unit during creation, updating, and removal operations.
 
-Um agregado (aggregate) é um conjunto de objetos de domínio que são tratados como uma unidade coesa. Eles são usados para delimitar transações consistentes de mudança de estado dentro do domínio.
+An aggregate is a set of domain objects that are treated as a cohesive unit. They are used to delimit consistent state change transactions within the domain.
 
-Um agregado tem uma raiz de agregado (aggregate root), que é uma única entidade que é responsável por garantir a consistência do agregado como um todo. A raiz do agregado é a única entidade que pode ser referenciada de fora do agregado. 
-Todas as outras entidades dentro do agregado só podem ser acessadas através da raiz do agregado.
+An aggregate has an aggregate root, which is a single entity that is responsible for ensuring the consistency of the aggregate as a whole. The aggregate root is the only entity that can be referenced from outside the aggregate. 
+All other entities within the aggregate can only be accessed through the aggregate root.
 
-O uso deles é uma das principais técnicas para gerenciar a complexidade em sistemas de software baseados em DDD. Ao definir os limites do agregado, é possível criar um modelo de domínio mais claro e focado, 
-com transações e responsabilidades bem definidas para cada objeto no agregado.
+Their use is one of the main techniques for managing complexity in DDD-based software systems. By defining aggregate boundaries, it is possible to create a clearer and more focused domain model, 
+with well-defined transactions and responsibilities for each object in the aggregate.
 
 </details>
 
 <details>
 <summary><strong>Bounded Context</strong></summary>
 
-##### Definição
-Bounded Context (contexto delimitado / subdomínio) é uma técnica para definir limites explícitos em torno de um conjunto de modelos de domínio. Cada Bounded Context é uma fronteira lógica que separa um modelo de domínio específico, com suas próprias regras, 
-termos e limites, de outros modelos de domínio dentro do mesmo sistema.
+##### Definition
+Bounded Context is a technique for defining explicit boundaries around a set of domain models. Each Bounded Context is a logical boundary that separates a specific domain model, with its own rules,
+terms, and boundaries, from other domain models within the same system.
 
-Um Bounded Context pode ser visto como um subdomínio ou um setor de um sistema maior, onde as interações entre os objetos de domínio são altamente relacionadas. 
-Dentro de um Bounded Context, as regras de negócio podem ser diferentes e podem ter nomes de entidades ou conceitos com significados distintos em outros contextos.
+A Bounded Context can be seen as a subdomain or a sector of a larger system, where interactions between domain objects are highly related.
+Within a Bounded Context, business rules may be different and may have entity names or concepts with distinct meanings in other contexts.
 
 </details>
 
 <details>
 <summary><strong>Value Objects</strong></summary>
 
-##### Definição
-É uma propriedade da entidade que possui regras próprias, como formatação e validação.
+##### Definition
+It is a property of the entity that has its own rules, such as formatting and validation.
 
-Um Value Object (objeto de valor) é uma classe que representa um valor que é importante para o domínio, mas que não possui identidade própria. 
-Em outras palavras, um Value Object é um objeto que é definido pelos seus atributos, em vez de ser definido por uma identidade exclusiva.
+A Value Object is a class that represents a value that is important for the domain but does not have its own identity.
+In other words, a Value Object is an object that is defined by its attributes, rather than being defined by a unique identity.
 
-Por exemplo, em um sistema de compras online, um Endereço pode ser modelado como um Value Object, pois não é importante manter um identificador único para cada endereço, mas sim os seus atributos, como rua, número, bairro, cidade, estado e CEP. 
-Do ponto de vista do negócio, o endereço é apenas uma informação que precisa ser armazenada e consultada, não sendo uma entidade que precisa ser rastreada ou gerenciada.
+For example, in an online shopping system, an Address can be modeled as a Value Object because it is not important to maintain a unique identifier for each address, but rather its attributes, such as street, number, neighborhood, city, state, and ZIP code.
+From a business perspective, the address is just information that needs to be stored and queried, not an entity that needs to be tracked or managed.
 
-Porém, é importante lembrar que nem todos os objetos sem identidade são necessariamente Value Objects. A decisão de modelar um objeto como um Value Object depende do contexto do domínio e da análise dos especialistas do negócio e da equipe de desenvolvimento.
+However, it is important to remember that not all objects without identity are necessarily Value Objects. The decision to model an object as a Value Object depends on the domain context and the analysis of business experts and the development team.
 
 </details>
 
 <details>
 <summary><strong>Domain Events</strong></summary>
 
-##### Definição
-Um evento de domínio (domain event) é uma notificação assíncrona que indica que algo importante aconteceu no domínio do sistema. 
-Ele representa um fato ocorrido dentro do sistema que pode ser interessante para outras partes do sistema e pode ser usado para tomar decisões ou gerar novas ações.
+##### Definition
+A domain event is an asynchronous notification that indicates that something important has happened in the system's domain.
+It represents an event that occurred within the system that may be of interest to other parts of the system and can be used to make decisions or generate new actions.
 
-Por exemplo, em um sistema de comércio eletrônico, um evento de domínio pode ser gerado quando uma nova compra é realizada com sucesso. 
-Esse evento pode conter informações como o identificador da compra, o valor total, o endereço de entrega, entre outras informações relevantes para o domínio.
+For example, in an e-commerce system, a domain event can be generated when a new purchase is made successfully.
+This event may contain information such as the purchase identifier, the total amount, the delivery address, among other information relevant to the domain.
 
-Eventos de domínio são importantes porque permitem que diferentes partes do sistema sejam notificadas e atualizadas quando ocorrem mudanças importantes no domínio. 
-Eles também permitem que o sistema seja projetado de forma mais modular e escalável, pois diferentes partes do sistema podem ser projetadas para reagir a diferentes tipos de eventos, de forma independente.
+Domain events are important because they allow different parts of the system to be notified and updated when important changes occur in the domain.
+They also allow the system to be designed more modularly and scalably, as different parts of the system can be designed to react to different types of events independently.
 
 </details>
 
 <details>
 <summary><strong>Subscribers</strong></summary>
 
-##### Definição
-São assinantes que reagem a eventos de domínio específicos.
+##### Definition
+Subscribers are subscribers that react to specific domain events.
 
 </details>
 
-## :page_facing_up: Como utilizar
+## :page_facing_up: How to use
 
-- Faça um clone deste repositório:
+- Clone this repository:
 
 ```sh
   $ git clone https://github.com/luc-ribeiro/forum-clean-ddd-node.git
 ```
 
-- Instale as dependências:
+- Install dependencies:
 
 ```sh
-  # com npm
+  # with npm
   $ npm install
 
-  # com yarn
+  # with yarn
   $ yarn install
 ```
 
-- Execute o comando:
+- Run the command:
 
 ```sh
-  # com npm
+  # with npm
   $ npm run test
 
-  # com yarn
+  # with yarn
   $ yarn test
 ```
 
-- O projeto rodará os testes. A estrutura da aplicação é focada em toda a lógica e regra de negócio, independente de frameworks e bancos de dados, seguindo os conceitos mencionados anteriormente.
+- The project will run the tests. The application structure is focused on all logic and business rule, independent of frameworks and databases, following the concepts mentioned above.
